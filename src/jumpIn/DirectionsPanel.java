@@ -5,7 +5,7 @@
  * 
  * DirectionsPanel.java
  * 
- * The class that sets up graphics stuff.
+ * The class that sets up and holds the directions.
  */
 
 package jumpIn;
@@ -20,13 +20,12 @@ public class DirectionsPanel extends JPanel
 
 	public DirectionsPanel()
 	{
-		
+		//setBackground(Color.LIGHT_GRAY);
 	}
 	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		//setBackground(Color.LIGHT_GRAY);
 	}
 	
 }

@@ -5,7 +5,9 @@
  * 
  * GamePanel.java
  * 
- * The class that sets up graphics stuff.
+ * The class that sets up top portion of main game panel.
+ * This is where the player will see the character in a stage and directly
+ * control it.
  */
 
 package jumpIn;
@@ -18,9 +20,10 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel 
 {
 
-	public GamePanel() 
+	public GamePanel(int sizeXIn, int sizeYIn) 
 	{
-		
+		setLocation(0, 0);
+		setSize(sizeXIn, (sizeYIn/3)*2);
 	}
 	
 	public void paintComponent(Graphics g)

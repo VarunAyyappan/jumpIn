@@ -5,7 +5,9 @@
  * 
  * InfoPanel.java
  * 
- * The class that sets up graphics stuff.
+ * The class that sets up the bottom portion of the main game panel.
+ * This will hold the variety of info the player needs in game and
+ * the input for the math problems.
  */
 
 package jumpIn;
@@ -18,16 +20,17 @@ import javax.swing.JPanel;
 public class InfoPanel extends JPanel 
 {
 
-	public InfoPanel() 
+	public InfoPanel(int sizeXIn, int sizeYIn) 
 	{
-		//setSize(sizeX, 300);
+		setLocation(0, (sizeYIn/3)*2);
+		setSize(sizeXIn, sizeYIn/3);
+		setBackground(Color.LIGHT_GRAY);
 	}
 	
 	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		setBackground(Color.LIGHT_GRAY);
 	}
 
 }

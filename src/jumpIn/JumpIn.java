@@ -11,9 +11,7 @@
 
 package jumpIn;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,7 +26,6 @@ public class JumpIn
 	private InfoPanel iPanel;      // In mgPanel
 	private GamePanel gPanel;      // In mgPanel
 	private DirectionsPanel dPanel;   // In jiPanel
-	private BorderLayout bl;
 	private CardLayout cards;
 	
 	private final String MAIN_MENU, GAME_PANEL, DIRECTION_PANEL;  // For CardLayout
@@ -37,22 +34,21 @@ public class JumpIn
 	// Initialize field variables
 	public JumpIn() 
 	{
+		sizeX = 1200;
+		sizeY = 870;
+		
 		jiFrame = new JFrame();
 		jiPanel = new JPanel();
-		mmPanel = new MainMenu();
+		mmPanel = new MainMenu(this);
 		mgPanel = new JPanel();
-		iPanel = new InfoPanel();
-		gPanel = new GamePanel();
+		iPanel = new InfoPanel(sizeX, sizeY);
+		gPanel = new GamePanel(sizeX, sizeY);
 		dPanel = new DirectionsPanel();
-		bl = new BorderLayout(5, 5);
 		cards = new CardLayout();
 		
 		MAIN_MENU = "Card with Main Menu";
 		GAME_PANEL = "Card with GamePanel";
 		DIRECTION_PANEL = "Card with Directions";
-		
-		sizeX = 1200;
-		sizeY = 870;
 	}
 	
 	// Instantiates instance of class and calls run
@@ -76,9 +72,9 @@ public class JumpIn
 		jiPanel.add(mgPanel, GAME_PANEL);
 		jiPanel.add(dPanel, DIRECTION_PANEL);
 		
-		mgPanel.setLayout(bl);
-		mgPanel.add(gPanel, bl.CENTER);
-		mgPanel.add(iPanel, bl.SOUTH);
+		mgPanel.setLayout(null);
+		mgPanel.add(gPanel);
+		mgPanel.add(iPanel);
 		
 		jiFrame.setVisible(true);
 	}
