@@ -3,7 +3,7 @@
  * 04/09/2017
  * Period 1
  * 
- * InfoPanel.java
+ * DirectionsPanel.java
  * 
  * The class that sets up graphics stuff.
  */
@@ -15,19 +15,18 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-public class InfoPanel extends JPanel 
+public class DirectionsPanel extends JPanel
 {
 
-	public InfoPanel() 
+	public DirectionsPanel()
 	{
-		//setSize(sizeX, 300);
+		
 	}
-	
 	
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		setBackground(Color.LIGHT_GRAY);
+		//setBackground(Color.LIGHT_GRAY);
 	}
-
+	
 }

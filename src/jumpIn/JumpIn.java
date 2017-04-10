@@ -1,6 +1,19 @@
+/*
+ * Varun Ayyappan
+ * 04/09/2017
+ * Period 1
+ * 
+ * JumpIn.java
+ * 
+ * The class that sets up graphics. Has JFrame and main JPanel that shows
+ * appropriate panel by selecting the necessary card.
+ */
+
 package jumpIn;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,24 +21,36 @@ import javax.swing.JPanel;
 public class JumpIn 
 {
 	
-	private JFrame jiFrame;
-	private JPanel jiPanel;
-	private InfoPanel iPanel;
-	private GamePanel gPanel;
+	private JFrame jiFrame;      // The frame
+	private JPanel jiPanel;      // Main Panel that holds other panel in cards
+	private MainMenu mmPanel;      // In jiPanel
+	private JPanel mgPanel;        // In jiPanel
+	private InfoPanel iPanel;      // In mgPanel
+	private GamePanel gPanel;      // In mgPanel
+	private DirectionsPanel dPanel;   // In jiPanel
 	private BorderLayout bl;
+	private CardLayout cards;
 	
-	private boolean gameOver;
-	private int sizeX, sizeY;
+	private final String MAIN_MENU, GAME_PANEL, DIRECTION_PANEL;  // For CardLayout
+	private int sizeX, sizeY;   // Size of frame
 	
 	// Initialize field variables
 	public JumpIn() 
 	{
 		jiFrame = new JFrame();
 		jiPanel = new JPanel();
+		mmPanel = new MainMenu();
+		mgPanel = new JPanel();
 		iPanel = new InfoPanel();
 		gPanel = new GamePanel();
+		dPanel = new DirectionsPanel();
 		bl = new BorderLayout(5, 5);
-		gameOver = false;
+		cards = new CardLayout();
+		
+		MAIN_MENU = "Card with Main Menu";
+		GAME_PANEL = "Card with GamePanel";
+		DIRECTION_PANEL = "Card with Directions";
+		
 		sizeX = 1200;
 		sizeY = 870;
 	}
@@ -46,10 +71,27 @@ public class JumpIn
 		jiFrame.setResizable(false);
 		jiFrame.getContentPane().add(jiPanel);
 		
-		jiPanel.setLayout(bl);
-		jiPanel.add(gPanel, bl.CENTER);
-		jiPanel.add(iPanel, bl.SOUTH);
+		jiPanel.setLayout(cards);
+		jiPanel.add(mmPanel, MAIN_MENU);
+		jiPanel.add(mgPanel, GAME_PANEL);
+		jiPanel.add(dPanel, DIRECTION_PANEL);
+		
+		mgPanel.setLayout(bl);
+		mgPanel.add(gPanel, bl.CENTER);
+		mgPanel.add(iPanel, bl.SOUTH);
 		
 		jiFrame.setVisible(true);
 	}
+	
+	// Call this when it is necessary to shift to another card
+	public void shift(int selection) 
+	{
+		if(selection == 1)
+			cards.show(jiPanel, MAIN_MENU);
+		else if(selection == 2)
+			cards.show(jiPanel, GAME_PANEL);
+		else if(selection == 3)
+			cards.show(jiPanel, DIRECTION_PANEL);
+	}
+	
 }
