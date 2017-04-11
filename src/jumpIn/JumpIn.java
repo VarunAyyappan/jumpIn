@@ -7,6 +7,8 @@
  * 
  * The class that sets up graphics. Has JFrame and main JPanel that shows
  * appropriate panel by selecting the necessary card.
+ * 
+ * Pic coordinates (0,0) to (95,65)
  */
 
 package jumpIn;

@@ -37,7 +37,7 @@ public class MainMenu extends JPanel implements ActionListener
 		playButton.addActionListener(this);
 		dirButton.addActionListener(this);
 		
-		setBackground(Color.LIGHT_GRAY);
+		setBackground(Color.GREEN);
 		setLayout(null);
 		playButton.setLocation(200, 200);
 		playButton.setSize(100, 50);
@@ -48,6 +48,8 @@ public class MainMenu extends JPanel implements ActionListener
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		g.setColor(Color.BLUE);
+		
 		
 		Font font = new Font("SansSerif", Font.BOLD, 50);
 		g.setFont(font);

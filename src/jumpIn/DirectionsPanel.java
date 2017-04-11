@@ -28,4 +28,6 @@ public class DirectionsPanel extends JPanel
 		super.paintComponent(g);
 	}
 	
+	
+	
 }
