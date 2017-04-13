@@ -8,7 +8,6 @@
  * The class that sets up graphics. Has JFrame and main JPanel that shows
  * appropriate panel by selecting the necessary card.
  * 
- * Pic coordinates (0,0) to (95,65)
  */
 
 package jumpIn;
@@ -45,7 +44,7 @@ public class JumpIn
 		mgPanel = new JPanel();
 		iPanel = new InfoPanel(sizeX, sizeY);
 		gPanel = new GamePanel(sizeX, sizeY);
-		dPanel = new DirectionsPanel();
+		dPanel = new DirectionsPanel(this, sizeX, sizeY);
 		cards = new CardLayout();
 		
 		MAIN_MENU = "Card with Main Menu";
@@ -87,7 +86,10 @@ public class JumpIn
 		if(selection == 1)
 			cards.show(jiPanel, MAIN_MENU);
 		else if(selection == 2)
+		{
 			cards.show(jiPanel, GAME_PANEL);
+			gPanel.requestFocus();
+		}
 		else if(selection == 3)
 			cards.show(jiPanel, DIRECTION_PANEL);
 	}

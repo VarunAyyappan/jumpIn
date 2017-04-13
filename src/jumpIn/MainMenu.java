@@ -39,9 +39,9 @@ public class MainMenu extends JPanel implements ActionListener
 		
 		setBackground(Color.GREEN);
 		setLayout(null);
-		playButton.setLocation(200, 200);
+		playButton.setLocation(10, 100);
 		playButton.setSize(100, 50);
-		dirButton.setLocation(200, 400);
+		dirButton.setLocation(10, 200);
 		dirButton.setSize(100, 50);
 	}
 	
@@ -50,11 +50,10 @@ public class MainMenu extends JPanel implements ActionListener
 		super.paintComponent(g);
 		g.setColor(Color.BLUE);
 		
-		
 		Font font = new Font("SansSerif", Font.BOLD, 50);
 		g.setFont(font);
 		
-		g.drawString("Jump In!", 50, 50);
+		g.drawString("Jump In!", 10, 50);
 	}
 
 	public void actionPerformed(ActionEvent e) 
