@@ -39,9 +39,10 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	
 	private int boundary;
 	
+	// Initialize field variables and change panel settings
 	public GamePanel(int sizeXIn, int sizeYIn) 
 	{
-		frogImgName = "src/files/22494_Flipped.png";    // get rid of src/files/ in school
+		frogImgName = "src/files/22494_Flipped.png";// get rid of src/files/ in school
 		getMyImage();
 		frogX = 0;
 		frogY = 300;
@@ -59,6 +60,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 		addKeyListener(this);
 	}
 	
+	// Gets image, sends error message it it failed
 	public void getMyImage()
 	{
 		try
@@ -70,6 +72,14 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 			System.err.println("\n\nERROR: "+frogImgName+" can't be found.\n\n");
 			e.printStackTrace();
 		}
+	}
+	
+	// Resets Frogs position to the beginning position
+	public void resetFrog() {
+		frogX = 0;
+		frogY = 300;
+		repaint();
+		requestFocusInWindow();
 	}
 	
 	// Graphics happens here
@@ -124,7 +134,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	}
 	public void keyTyped(KeyEvent e) {}
 	public void keyReleased(KeyEvent e) {}
-
+	
+	// ActionListener method
 	public void actionPerformed(ActionEvent e) {
 		
 	}

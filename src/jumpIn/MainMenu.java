@@ -25,6 +25,7 @@ public class MainMenu extends JPanel implements ActionListener
 	private JButton playButton;
 	private JButton dirButton;
 	
+	// Initialize field variables and change panel settings
 	public MainMenu(JumpIn jiRefIn) 
 	{
 		jiRef = jiRefIn;
@@ -45,6 +46,7 @@ public class MainMenu extends JPanel implements ActionListener
 		dirButton.setSize(100, 50);
 	}
 	
+	// Paint panel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -56,6 +58,7 @@ public class MainMenu extends JPanel implements ActionListener
 		g.drawString("Jump In!", 10, 50);
 	}
 
+	// From ActionListener
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(e.getSource().equals(playButton))

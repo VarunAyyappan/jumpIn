@@ -24,8 +24,8 @@ public class JumpIn
 	private JPanel jiPanel;      // Main Panel that holds other panel in cards
 	private MainMenu mmPanel;      // In jiPanel
 	private JPanel mgPanel;        // In jiPanel
-	private InfoPanel iPanel;      // In mgPanel
 	private GamePanel gPanel;      // In mgPanel
+	private InfoPanel iPanel;      // In mgPanel
 	private DirectionsPanel dPanel;   // In jiPanel
 	private CardLayout cards;
 	
@@ -42,8 +42,8 @@ public class JumpIn
 		jiPanel = new JPanel();
 		mmPanel = new MainMenu(this);
 		mgPanel = new JPanel();
-		iPanel = new InfoPanel(sizeX, sizeY);
 		gPanel = new GamePanel(sizeX, sizeY);
+		iPanel = new InfoPanel(gPanel, sizeX, sizeY);
 		dPanel = new DirectionsPanel(this, sizeX, sizeY);
 		cards = new CardLayout();
 		

@@ -5,7 +5,7 @@
  * 
  * DirectionsPanel.java
  * 
- * The class that sets up and holds the directions.
+ * The class that sets up and holds the direction panel.
  */
 
 package jumpIn;
@@ -24,6 +24,7 @@ public class DirectionsPanel extends JPanel implements ActionListener
 	private JumpIn jiRef;
 	private JButton backToMM;
 
+	//Initialize field variables and 
 	public DirectionsPanel(JumpIn jiRefIn, int sizeXIn, int sizeYIn)
 	{
 		jiRef = jiRefIn;
@@ -38,6 +39,7 @@ public class DirectionsPanel extends JPanel implements ActionListener
 		backToMM.setLocation((sizeXIn/2)-(backToMM.getWidth()/2), sizeYIn-(backToMM.getHeight()+50));
 	}
 	
+	// Paints panel
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
@@ -48,7 +50,8 @@ public class DirectionsPanel extends JPanel implements ActionListener
 		g.setColor(Color.BLUE);
 		g.drawString("Directions: ", 0, 50);
 	}
-
+	
+	// From ActionListener
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(backToMM))
 			jiRef.shift(1);
