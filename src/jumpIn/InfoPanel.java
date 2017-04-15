@@ -49,7 +49,8 @@ public class InfoPanel extends JPanel implements ActionListener
 	}
 
 	// From ActionListener
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) 
+	{
 		if(e.getSource().equals(refresh))
 			gpRef.resetFrog();
 	}
