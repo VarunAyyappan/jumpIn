@@ -38,7 +38,7 @@ public class DirectionsPanel extends JPanel implements ActionListener
 		jiRef = jiRefIn;
 		backToMM = new JButton("Back To Main Menu");
 		
-		ifScanFailed = true;
+		ifScanFailed = false;
 		
 		add(backToMM);
 		backToMM.addActionListener(this);
@@ -54,7 +54,7 @@ public class DirectionsPanel extends JPanel implements ActionListener
 	// Sets boolean that will put error on GUI if it fails
 	public void createScanner()
 	{
-		String inFileName = "";
+		String inFileName = "src/files/Directions.txt";// get rid of src/files/ in school
 		File inFile = new File(inFileName);
 		
 		try
@@ -96,6 +96,9 @@ public class DirectionsPanel extends JPanel implements ActionListener
 				g.drawString(inputFromFile.nextLine(), 5, currentY);
 				currentY+=50;
 			}
+			
+			inputFromFile.reset();
+			createScanner();
 		}
 	}
 	
