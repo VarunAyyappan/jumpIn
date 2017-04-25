@@ -36,8 +36,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	// For Animation
 	private int timeSlice; 
 	private Timer timer;
-	
 	private int boundary;
+	private Stage stage;
 	
 	// Initialize field variables, set up timer, and change panel settings
 	public GamePanel(int sizeXIn, int sizeYIn) 
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 		frogImgName = "src/files/22494_Flipped.png";// get rid of src/files/ in school
 		getMyImage();
 		frogX = 0;
-		frogY = 300;
+		setFrogY(300);
 		vx = 10;
 		vy = 10;
 		
@@ -55,6 +55,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 		timer.start();
 		
 		boundary = sizeXIn;
+		stage = new Stage(this);
 		
 		setLocation(0, 0);
 		setSize(sizeXIn, (sizeYIn/3)*2);
@@ -79,21 +80,39 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	// Resets Frogs position to the beginning position
 	public void resetFrog() {
 		frogX = 0;
-		frogY = 300;
+		setFrogY(300);
 		requestFocusInWindow();
 	}
 	
+	public int getFrogY() {
+		return frogY;
+	}
+
+	public void setFrogY(int frogYIn) {
+		frogY = frogYIn;
+	}
+	
+	public int getFrogX() {
+		return frogX;
+	}
+
+	public void setFrogX(int frogXIn) {
+		frogX = frogXIn;
+	}
+
 	// Graphics happens here
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		g.drawImage(frogImg, frogX, frogY, frogX+95, frogY+65, 340, 0, 435, 65, this);
+		g.drawImage(frogImg, frogX, getFrogY(), frogX+95, getFrogY()+65, 340, 0, 435, 65, this);
 		
 		g.setColor(Color.GREEN);
 		g.fillRect(0, 365, boundary, 300);
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(300, 365, 120, 300);
+		
+		stage.draw(g);
 	}
 	
 	// KeyListener methods
@@ -110,12 +129,12 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 			for(int num=0; num<150; num++)
 			{
 				frogX++;
-				if(num%10==0)frogY-=25;
+				if(num%10==0)setFrogY(getFrogY() - 25);
 			}
 			for(int num=150; num>0; num--)
 			{
 				frogX++;
-				if(num%10==0)frogY+=25;
+				if(num%10==0)setFrogY(getFrogY() + 25);
 			}
 		}
 	}
