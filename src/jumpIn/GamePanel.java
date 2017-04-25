@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	
 	private int boundary;
 	
-	// Initialize field variables and change panel settings
+	// Initialize field variables, set up timer, and change panel settings
 	public GamePanel(int sizeXIn, int sizeYIn) 
 	{
 		frogImgName = "src/files/22494_Flipped.png";// get rid of src/files/ in school
@@ -51,6 +51,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 		
 		timeSlice = 50;
 		timer = new Timer(timeSlice, this);
+		timer.setInitialDelay(200);
+		timer.start();
 		
 		boundary = sizeXIn;
 		
@@ -78,7 +80,6 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	public void resetFrog() {
 		frogX = 0;
 		frogY = 300;
-		repaint();
 		requestFocusInWindow();
 	}
 	
@@ -109,28 +110,14 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 			for(int num=0; num<150; num++)
 			{
 				frogX++;
-				if(num%10==0)frogY+=25;
-				repaint();
-				try {
-					Thread.currentThread().sleep(10);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
+				if(num%10==0)frogY-=25;
 			}
 			for(int num=150; num>0; num--)
 			{
 				frogX++;
-				if(num%10==0)frogY-=25;
-				repaint();
-				try {
-					Thread.currentThread().sleep(10);
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
+				if(num%10==0)frogY+=25;
 			}
 		}
-		
-		repaint();
 	}
 	public void keyTyped(KeyEvent e) {}
 	public void keyReleased(KeyEvent e) {}
@@ -138,7 +125,7 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener
 	// ActionListener method
 	public void actionPerformed(ActionEvent e) 
 	{
-		
+		repaint();
 	}
 	
 }
